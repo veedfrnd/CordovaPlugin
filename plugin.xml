@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-ptmath" version="1.0.0"
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<name>MathCalPT</name>
+
+	<js-module name="MathCalPT" src="www/MathCalPT.js">
+		<clobbers target="MathCalPT" />
+	</js-module>
+
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="MathCalPT">
+				<param name="android-package" value="cordova.plugin.ptmath.MathCalPT" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" />
+		<source-file src="src/android/MathCalPT.java" target-dir="src/cordova/plugin/ptmath/MathCalPT" />
+	</platform>
+
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="MathCalPT">
+				<param name="ios-package" value="MathCalPT" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/MathCalPT.m" />
+	</platform>
+</plugin>
