@@ -16,26 +16,23 @@ public class MathCalPT extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if(action.equals("add")){
+        if (action.equals("add")) {
             this.add(args, callbackContext);
             return true;
         }
         return false;
     }
 
- 
-
-    private void add(JSONArray args, CallbackContext callbkContext)
-    {
-        if(args!=null){
+    private void add(JSONArray args, CallbackContext callbkContext) {
+        if (args != null) {
             try {
-                int p1= Integer.parseInt(args.getJSONObject(0).getString("param1"));
-                int p2= Integer.parseInt(args.getJSONObject(0).getString("param2"));
-                callbkContext.success(""+(p1+p2));
+                int p1 = Integer.parseInt(args.getJSONObject(0).getString("param1"));
+                int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+                callbkContext.success("" + (p1 + p2));
             } catch (Exception e) {
-                callbkContext.error("Something wentwrong "+e.getMessage());    
+                callbkContext.error("Something wentwrong " + e.getMessage());
             }
-        }else{
+        } else {
             callbkContext.error("Null value");
         }
     }
